@@ -43,6 +43,10 @@ int heightTree(Node *root)
 bool equalPaths(Node * root)
 {
     // Add your code below
+    if(root == NULL)
+    {
+        return true;
+    }
     if(heightTree(root->left) == heightTree(root->right))
     {
         return true;
