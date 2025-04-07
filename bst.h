@@ -688,7 +688,7 @@ void BinarySearchTree<Key, Value>::clear()
     // TODO
     // idea: go through every node recursively and delete them 
     clearHelp(root_);
-    return;
+    root_ = NULL;
 }
 
 template<typename Key, typename Value>
