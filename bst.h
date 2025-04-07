@@ -688,6 +688,7 @@ void BinarySearchTree<Key, Value>::clear()
     // TODO
     // idea: go through every node recursively and delete them 
     clearHelp(root_);
+    //delete root_;
     root_ = NULL;
 }
 
@@ -706,12 +707,8 @@ void BinarySearchTree<Key, Value>::clearHelp(Node<Key, Value>* curr)
     {
         clearHelp(curr->getRight());
     }
-    if(curr->getLeft() == NULL && curr->getRight() == NULL)
-    {
-        delete curr;
-        curr = NULL;
-        return;
-    }
+    delete curr;
+    curr = NULL;
 }
 
 /**

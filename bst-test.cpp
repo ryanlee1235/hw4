@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
     }
     
     bt.print();
+
+    //bt.clear();
     /*
     if(bt.find('b') != bt.end()) {
         cout << "Found b" << endl;
