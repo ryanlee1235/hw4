@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     {
         bt.insert(std::make_pair(letter + i, i));
     }
+<<<<<<< HEAD
     /*
     bt.insert(std::make_pair('d',4));
     bt.insert(std::make_pair('b',2));
@@ -23,10 +24,27 @@ int main(int argc, char *argv[])
     bt.insert(std::make_pair('c',3));
     bt.insert(std::make_pair('e',5));
     */
+=======
+    // bt.insert(std::make_pair('d',4));
+    // bt.insert(std::make_pair('b',2));
+    // bt.insert(std::make_pair('g',7));
+    // bt.insert(std::make_pair('a',1));
+    // bt.insert(std::make_pair('c',3));
+    // bt.insert(std::make_pair('e',5));
+    // bt.insert(std::make_pair('d',9));
+    // bt.insert(std::make_pair('k',4));
+    // bt.insert(std::make_pair('o',2));
+    // bt.insert(std::make_pair('l',7));
+    // bt.insert(std::make_pair('f',1));
+    // bt.insert(std::make_pair('r',3));
+    // bt.insert(std::make_pair('y',5));
+    
+>>>>>>> d9b2a39 (local changes)
     cout << "Binary Search Tree contents:" << endl;
     for(BinarySearchTree<char,int>::iterator it = bt.begin(); it != bt.end(); ++it) {
         cout << it->first << " " << it->second << endl;
     }
+<<<<<<< HEAD
     
     bt.print();
     /*
@@ -38,18 +56,34 @@ int main(int argc, char *argv[])
     }
     cout << "Erasing b" << endl;
     bt.remove('b');
+=======
+    // bt.print();
+    // if(bt.find('b') != bt.end()) {
+    //     cout << "Found b" << endl;
+    // }
+    // else {
+    //     cout << "Did not find b" << endl;
+    // }
+    // cout << "Erasing b" << endl;
+    // bt.remove('b');
+>>>>>>> d9b2a39 (local changes)
 
-    cout << "Binary Search Tree contents:" << endl;
-    for(BinarySearchTree<char,int>::iterator it = bt.begin(); it != bt.end(); ++it) {
-        cout << it->first << " " << it->second << endl;
-    }
-    bt.print();
+    // cout << "Binary Search Tree contents:" << endl;
+    // for(BinarySearchTree<char,int>::iterator it = bt.begin(); it != bt.end(); ++it) {
+    //     cout << it->first << " " << it->second << endl;
+    // }
+    // bt.print();
 
-    bt.remove('d');
-    bt.print();
+    // bt.remove('d');
+    // bt.print();
 
+<<<<<<< HEAD
     bt.remove('a');
     bt.print();*/
+=======
+    // bt.remove('a');
+    // bt.print();
+>>>>>>> d9b2a39 (local changes)
 
 /*
     cout << "Binary Search Tree contents:" << endl;
