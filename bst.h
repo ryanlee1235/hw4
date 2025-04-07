@@ -250,7 +250,7 @@ protected:
     void insertHelp(Node<Key, Value>* current, const std::pair<const Key, Value> &keyValuePair);
     void clearHelp(Node<Key, Value>* curr);
     bool isBalancedHelp(Node<Key, Value>* root) const;
-    int heightTree(Node<Key, Value> *root);
+    int heightTree(Node<Key, Value> *root) const;
     static Node<Key, Value>* successor(Node<Key, Value>* current);
 
 protected:
@@ -477,11 +477,12 @@ void BinarySearchTree<Key, Value>::insertHelp(Node<Key, Value>* current, const s
         {
             Node<Key, Value>* node1 = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, current);
             current->setLeft(node1);
-            return;
+            //return;
         }
         else
         {
             insertHelp(current->getLeft(), keyValuePair);
+            //return;
         }
     }
     else if(keyValuePair.first > current->getKey())
@@ -490,18 +491,20 @@ void BinarySearchTree<Key, Value>::insertHelp(Node<Key, Value>* current, const s
         {
             Node<Key, Value>* node1 = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, current);
             current->setRight(node1);
-            return;
+            //return;
         }
         else
         {
             insertHelp(current->getRight(), keyValuePair);
+            //return;
         }
     }
     else
     {
         current->setValue(keyValuePair.second);
-        return;
+        //return;
     }
+    return;
 }
 
 
@@ -774,7 +777,7 @@ template<typename Key, typename Value>
 // helper function to check balance recursively
 bool BinarySearchTree<Key, Value>::isBalancedHelp(Node<Key, Value>* root) const
 {
-    if(root == NULL) return true;
+  if(root == NULL) return true;
 	int left = heightTree(root->getLeft());
 	// cout << "left: " << left << endl;
 	
@@ -783,7 +786,7 @@ bool BinarySearchTree<Key, Value>::isBalancedHelp(Node<Key, Value>* root) const
 	
 	if(left > right)
 	{
-		if(left - right <= 1) return (true && isBalanced(root->getLeft()) && isBalanced(root->getRight()));
+		if(left - right <= 1) return (true && isBalancedHelp(root->getLeft()) && isBalancedHelp(root->getRight()));
 		else
 		{
 			return false;
@@ -791,7 +794,7 @@ bool BinarySearchTree<Key, Value>::isBalancedHelp(Node<Key, Value>* root) const
 	}
 	else if(left <= right)
 	{
-		if(left - right >= -1) return (true && isBalanced(root->getLeft()) && isBalanced(root->getRight()));
+		if(left - right >= -1) return (true && isBalancedHelp(root->getLeft()) && isBalancedHelp(root->getRight()));
 		else
 		{
 			return false;
@@ -801,10 +804,10 @@ bool BinarySearchTree<Key, Value>::isBalancedHelp(Node<Key, Value>* root) const
 
 template<typename Key, typename Value>
 // helper function created to find height of tree (max height)
-int BinarySearchTree<Key, Value>::heightTree(Node<Key, Value> *root)
+int BinarySearchTree<Key, Value>::heightTree(Node<Key, Value> *root) const
 {
 	if(root == NULL) return 0;
-	if(root->left == NULL && root->right == NULL)
+	if(root->getLeft() == NULL && root->getRight() == NULL)
 	{
 		return 1;
 	}

@@ -10,18 +10,26 @@ int main(int argc, char *argv[])
 {
     // Binary Search Tree tests
     BinarySearchTree<char,int> bt;
+    char letter = 'a';
+    for(int i = 0; i < 30; i++)
+    {
+        bt.insert(std::make_pair(letter + i, i));
+    }
+    /*
     bt.insert(std::make_pair('d',4));
     bt.insert(std::make_pair('b',2));
     bt.insert(std::make_pair('g',7));
     bt.insert(std::make_pair('a',1));
     bt.insert(std::make_pair('c',3));
     bt.insert(std::make_pair('e',5));
-    
+    */
     cout << "Binary Search Tree contents:" << endl;
     for(BinarySearchTree<char,int>::iterator it = bt.begin(); it != bt.end(); ++it) {
         cout << it->first << " " << it->second << endl;
     }
+    
     bt.print();
+    /*
     if(bt.find('b') != bt.end()) {
         cout << "Found b" << endl;
     }
@@ -41,7 +49,7 @@ int main(int argc, char *argv[])
     bt.print();
 
     bt.remove('a');
-    bt.print();
+    bt.print();*/
 
 /*
     cout << "Binary Search Tree contents:" << endl;
