@@ -111,8 +111,18 @@ int main(int argc, char *argv[])
     at.insert(std::make_pair('l',1));
     at.print();
 
-    // cout << "Erasing b" << endl;
-    // at.remove('b');
-    // at.print();
+    cout << "Erasing b" << endl;
+    at.remove('b');
+    at.print();
+
+    at.remove('f');
+    at.print();
+
+    at.remove('c');
+    at.print();
+
+    at.remove('a');
+    at.print();
+
     return 0;
 }
