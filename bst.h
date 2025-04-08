@@ -467,14 +467,17 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
 template<class Key, class Value>
 void BinarySearchTree<Key, Value>::insertHelp(Node<Key, Value>* current, const std::pair<const Key, Value> &keyValuePair)
 {
+  // recursive insert helper function
     if(current == NULL)
     {
         return;
     }
     if(keyValuePair.first < current->getKey())
     {
+      // proceed if key is less than current
         if(current->getLeft() == NULL)
         {
+          // create and attach node to current child if no child
             Node<Key, Value>* node1 = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, current);
             current->setLeft(node1);
             //return;
@@ -487,6 +490,7 @@ void BinarySearchTree<Key, Value>::insertHelp(Node<Key, Value>* current, const s
     }
     else if(keyValuePair.first > current->getKey())
     {
+      // repeat for larger value
         if(current->getRight() == NULL)
         {
             Node<Key, Value>* node1 = new Node<Key, Value>(keyValuePair.first, keyValuePair.second, current);
@@ -524,12 +528,14 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
     }
     else if(curr->getLeft() != NULL && curr->getRight() != NULL)
     {
+      // swap w predecessor if 2 children
         Node<Key, Value>* predecessorNode = predecessor(curr);
         nodeSwap(curr, predecessorNode);
     }
     if(curr->getLeft() != NULL && curr->getRight() == NULL)
     {
         // nodeSwap(curr, curr->getLeft());
+        // one children cases
         Node<Key, Value>* parent = curr->getParent();
         Node<Key, Value>* currLeft = curr->getLeft();
         
@@ -581,6 +587,7 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
     }
     else
     {
+      // no children case (update pointers and remove)
         Node<Key, Value>* parent = curr->getParent();
         if(root_ == curr)
         {
@@ -613,17 +620,20 @@ BinarySearchTree<Key, Value>::predecessor(Node<Key, Value>* current)
     {
         return current;
     }
+    // check if left subtree is available by def of predecessor
     if(current->getLeft() != NULL)
     {
         nodePoint = current->getLeft();
         while(nodePoint->getRight() != NULL && nodePoint != NULL)
         {
+          // advance nodePoint to rightmost node
             nodePoint = nodePoint->getRight();
         }
         return nodePoint;
     }
     else
     {
+      // go up the inheritance tree to find parent
         nodePoint = current;
         while(nodePoint->getParent() != NULL)
         {
@@ -645,6 +655,7 @@ Node<Key, Value>*
 BinarySearchTree<Key, Value>::successor(Node<Key, Value>* current)
 {
     // TODO
+    // same code as predecessor just reversed
     Node<Key, Value>* nodePoint = NULL;
     if(current == NULL)
     {
@@ -695,6 +706,7 @@ void BinarySearchTree<Key, Value>::clear()
 template<typename Key, typename Value>
 void BinarySearchTree<Key, Value>::clearHelp(Node<Key, Value>* curr)
 {
+  // recursive clear helper func
     if(curr == NULL)
     {
         return;
