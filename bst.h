@@ -247,7 +247,7 @@ protected:
     virtual void nodeSwap( Node<Key,Value>* n1, Node<Key,Value>* n2) ;
 
     // Add helper functions here
-    void insertHelp(Node<Key, Value>* current, const std::pair<const Key, Value> &keyValuePair);
+    virtual void insertHelp(Node<Key, Value>* current, const std::pair<const Key, Value> &keyValuePair);
     void clearHelp(Node<Key, Value>* curr);
     bool isBalancedHelp(Node<Key, Value>* root) const;
     int heightTree(Node<Key, Value> *root) const;
